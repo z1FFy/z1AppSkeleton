@@ -9,17 +9,20 @@ ini_set('display_errors', 0); // If not setting on the php.ini
  *
  * Using:
  * Template - Pug(Jade)
- * Router - Klein
+ * Router - Respect\Rest\Router
  **/
 class App
 {
 	public $pug,$route,
-	$data;
-	function __construct()
+	$data,
+	$subfolder;
+
+	function __construct($subfolder)
 	{
+		$this->subfolder = $subfolder;
+		$this->route = new Respect\Rest\Router($this->subfolder);
 		$this->pug = new \Pug\Pug();
-		$this->route = new \Klein\Klein();
-	    $this->data = [];
+		$this->data['resourcePath'] = $this->subfolder.'/app/static';
 	}
 
 	function render($view)
@@ -31,7 +34,7 @@ class App
 	}
 
 	function run(){
-		$this->route->dispatch();
+		$this->route->run();
 	}
 
 }
