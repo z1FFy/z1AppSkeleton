@@ -1,5 +1,5 @@
 {
-  "name": "z1ffy/z1AppSkeleton",
+  "name": "z1ffy/z1appskeleton",
   "description": "Sample app on Slim router, custom controllers and Pug(Jade) templates.",
   "require": {
     "pug-php/pug": "^2.4",
