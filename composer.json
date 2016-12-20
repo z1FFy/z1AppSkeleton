@@ -1,9 +1,9 @@
 {
   "require": {
     "pug-php/pug": "^2.4",
-    "respect/rest": "^0.6.0"
+    "slim/slim": "^3.0"
   },
-  "autoload" : {
+  "autoload": {
     "files": [
       "vendor/pug-php/pug/src/Pug/Pug.php"
     ]
