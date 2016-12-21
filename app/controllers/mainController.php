@@ -1,16 +1,13 @@
 <?php
-class MainController {
-    function __construct(){
-        $this->view = new View();
-    }
+class MainController extends Controller {
+    function __construct(){ }
 
-    function helloWorld(){
+    function helloWorld() {
         return
           $this->view->render(
-            'home',
-            [
-                'text' => 'Hello world',
-                'title' => 'Hello world'
+            'home', [
+              'text' => 'Hello world',
+              'title' => 'Hello world'
             ]
           );
     }
@@ -18,10 +15,7 @@ class MainController {
     function helloName($name) {
         return
           $this->view->render(
-            'home',
-            [
-              'text' => 'Hello ' . $name
-            ]
+            'home', ['text' => 'Hello ' . $name]
           );
     }
 }

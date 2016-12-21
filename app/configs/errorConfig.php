@@ -1,10 +1,4 @@
 <?php
-/**
- * PHP App Skeleton
- *
- * @author Denis Kuschenko <ziffyweb@gmail.com>
- */
-
 error_reporting(E_ALL); # Report all errors
 ini_set('display_errors', 0); # Disable standard php error reporting
 

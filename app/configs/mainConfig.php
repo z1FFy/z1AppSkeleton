@@ -1,13 +1,18 @@
 <?php
+require_once('errorConfig.php');
+
 function getConfig($key)
 {
-    $config = [
-      'domain' => 'localhost',
-      'subFolder' => 'z1AppSkeleton',
-      'dbHost' => 'localhost',
-      'dbUser' => 'root',
-      'dbPass' => '',
-      'dbName' => 'db'
-    ];
-    return $config[$key];
+    $mode = 'DEV'; #Change this for toggle config mode
+
+    $config =
+      [
+        'DEV' => [
+         '...'
+        ],
+        'PROD' => [
+          '...'
+        ]
+      ];
+    return $config[$mode][$key];
 }

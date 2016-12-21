@@ -12,18 +12,21 @@ class View {
 	public
 		$pug,
 		$data,
+        $path,
 		$domain,
 		$subFolder;
 	function __construct()
 	{
-		$this->pug = new Pug\Pug();
-		$this->domain = getConfig('domain');
-		$this->subFolder = getConfig('subFolder');
+        $this->pug = new Pug\Pug([
+          'prettyprint' => true
+        ]);
 	}
+
 	function render($view,$data=null)
 	{
-		$this->data['sitePath'] = 'http://' . $this->domain . '/' . $this->subFolder;
+		$this->data['sitePath'] = 'http://' . $this->domain . $this->subFolder;
 		$this->data['resPath'] = $this->data['sitePath'] . '/app/static';
+		$this->data['path'] = $this->path;
 		if ($data!=null)
 			foreach ($data as $key => $item)
 				$this->data[$key] = $item;
