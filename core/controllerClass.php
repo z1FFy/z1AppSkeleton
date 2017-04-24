@@ -1,4 +1,7 @@
 <?php
+namespace z1\App;
+
+use z1App\View;
 
 /**
  * Class Controller

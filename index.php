@@ -9,4 +9,5 @@
  */
 
 require __DIR__ . '/vendor/autoload.php';
-require ('app/app.php');
+require_once ('core/app.php');
+require_once ('app/routes/mainRoute.php');
