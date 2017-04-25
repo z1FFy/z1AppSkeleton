@@ -1,7 +1,7 @@
 <?php
 namespace z1App;
 
-class mysqlClass
+class MySQLClass
 {
     private $link;
 
