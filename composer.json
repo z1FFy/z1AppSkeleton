@@ -6,6 +6,10 @@
     "slim/slim": "^3.0"
   },
   "autoload": {
+    "classmap" : [
+      "app",
+      "core"
+    ],
     "files": [
       "vendor/pug-php/pug/src/Pug/Pug.php"
     ]

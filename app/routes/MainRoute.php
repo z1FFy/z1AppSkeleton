@@ -4,13 +4,14 @@ namespace app\routes;
 use z1;
 use Slim\Http\Request;
 
-$app = new z1\App();
+$app = new z1\App;
+$route = $app->route;
 
-$app->route->get('/', function () use ($app) {
+$route->get('/', function () use ($app) {
     return $app->ctrl->helloWorld();
 })->add($app->mw);
 
-$app->route->get('/hello/{id}',
+$route->get('/hello/{id}',
     function (Request $req) use ($app) {
     return
         $app->ctrl->helloName(
@@ -18,4 +19,4 @@ $app->route->get('/hello/{id}',
         );
 })->add($app->mw);
 
-$app->route->run();
+$route->run();

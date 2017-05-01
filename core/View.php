@@ -12,7 +12,8 @@ namespace z1\App;
 use Pug\Pug;
 
 
-class View {
+class View
+{
     public
         $pug,
         $data,
@@ -20,6 +21,7 @@ class View {
         $query,
         $host,
         $basePath;
+
     function __construct()
     {
         $this->pug = new Pug([
@@ -27,7 +29,7 @@ class View {
         ]);
     }
 
-    function render($view,$data=null)
+    function render($view, $data = null)
     {
         $this->data['host'] = $this->host;
         $this->data['basePath'] = $this->basePath;
@@ -35,9 +37,11 @@ class View {
         $this->data['resPath'] = $this->data['sitePath'] . '/app/static';
         $this->data['path'] = $this->path;
         $this->data['query'] = $this->query;
-        if ($data!=null)
-            foreach ($data as $key => $item)
+        if ($data != null) {
+            foreach ($data as $key => $item) {
                 $this->data[$key] = $item;
+            }
+        }
 
         $output = $this->pug->render(
             'app/templates/' . $view . '.pug',

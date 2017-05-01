@@ -12,12 +12,6 @@ class MainController extends Controller {
     }
 
     function helloWorld() {
-//        $app = new App();
-//        $app->route->get('/hello', function ()  {
-//            echo 'ee';
-//        })->add($app->mw);
-//
-//        $app->route->run();
         return
           $this->view->render(
             'home', [
