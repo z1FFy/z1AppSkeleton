@@ -1,28 +1,30 @@
 <?php
 namespace z1App;
-
-class MySQLClass
-{
-    private $link;
-
-    function __construct()
-    {
-        $this->link = mysqli_connect(
-          getConfig('dbHost'), getConfig('dbUser'), getConfig('dbPass'), getConfig('dbName')
-        );
-
-        if (!$this->link) {
-            dbg('Невозможно подключиться к базе данных. Код ошибки: ' . mysqli_connect_error());
-            return false;
-        } else {
-            $this->link->set_charset('utf8');
-            return true;
-        }
+/**
+ * Simple PDO Mysql class
+ */
+class MySQLClass {
+    /**
+     * @return PDO
+     */
+    private function getConnection() {
+        $username = getConfig('dbUser');
+        $password = getConfig('dbPass');
+        $host = getConfig('dbHost');
+        $db = getConfig('dbName');
+        $connection = new PDO("mysql:dbname=$db;host=$host", $username, $password);
+        return $connection;
     }
 
-    function query($q)
-    {
-        $q = mysqli_query($this->link, $q);
-        return mysqli_fetch_all($q);
+    /**
+     * @param $sql
+     * @param null $args
+     * @return PDOStatement
+     */
+    function query($sql, $args=null){
+        $connection = $this->getConnection();
+        $stmt = $connection->prepare($sql);
+        $stmt->execute($args);
+        return $stmt;
     }
 }
