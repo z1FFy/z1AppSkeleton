@@ -1,19 +1,13 @@
 <?php
 namespace app\controllers;
-use z1\App\Controller;
 
-/**
- * Class MainController
- * @package app\controllers
- */
+use core\Controller;
+use core\View;
+
 class MainController extends Controller {
-    function __construct(){
-
-    }
-
     function helloWorld() {
         return
-          $this->view->render(
+          View::render(
             'home', [
               'text' => 'Hello world',
               'title' => 'Hello world'
@@ -21,12 +15,13 @@ class MainController extends Controller {
           );
     }
 
-    function helloName($name) {
+    static function helloName($name) {
         return
-          $this->view->render(
+          View::render(
             'home',
               [
-                'text' => 'Hello ' . $name
+                'text' => 'Hello ' . $name,
+                'title' => 'Title'
               ]
           );
     }

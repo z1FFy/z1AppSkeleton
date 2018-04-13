@@ -1,19 +1,22 @@
 <?php
 namespace app\controllers;
 
+use core\Controller;
+use core\View;
+
 /**
  * Class TestController
  * @package app\controllers
  */
-class TestController extends MainController  {
+class TestController extends Controller  {
     function __construct(){ }
 
-    function test() {
+    function helloName($name) {
         return
-            $this->view->render(
+            View::render(
                 'home', [
-                    'text' => 'Test',
-                    'title' => 'Hello world'
+                    'text' => $name,
+                    'title' => 'Hello '.$name
                 ]
             );
     }
